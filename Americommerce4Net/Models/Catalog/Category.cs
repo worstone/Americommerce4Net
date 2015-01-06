@@ -14,7 +14,6 @@
 //   limitations under the License. 
 #endregion
 
-
 namespace Americommerce4Net.Models
 {
     public class Category : BaseAudit, IResource
