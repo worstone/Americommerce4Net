@@ -129,7 +129,7 @@ Examples coming soon
 License
 -------------
 
-Copyright 2014 Ken Worst - R.C. Worst & Company Inc.
+Copyright 2015 Ken Worst - R.C. Worst & Company Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
