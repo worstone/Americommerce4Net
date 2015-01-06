@@ -4,7 +4,8 @@
 # Misc
 Index.dat
 Storage.dat
-Americommerce4Net_Tests/App.config
+PrivateSettings.config
+
 
 # User-specific files
 *.suo

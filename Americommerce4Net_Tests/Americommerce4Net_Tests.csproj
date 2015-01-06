@@ -52,7 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="PrivateSettings.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Americommerce4Net\Americommerce4Net.csproj">
