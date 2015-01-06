@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2749DC52-412F-4E0D-8C02-F5740CA482B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Americommerce4Net</RootNamespace>
+    <AssemblyName>Americommerce4Net</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clients\BaseObjects\BaseClient.cs" />
+    <Compile Include="Clients\BaseObjects\BaseNonNestedReadOnlyClient.cs" />
+    <Compile Include="Clients\BaseObjects\BaseNonNestedClient.cs" />
+    <Compile Include="Clients\BaseObjects\BaseCRUDClient.cs" />
+    <Compile Include="Clients\BaseObjects\BaseNestedClient.cs" />
+    <Compile Include="Interfaces\IRepoResponse.cs" />
+    <Compile Include="Interfaces\IResource.cs" />
+    <Compile Include="Interfaces\IClientNestedRead.cs" />
+    <Compile Include="Interfaces\IClientNestedReadWrite.cs" />
+    <Compile Include="Interfaces\IClientReadWrite.cs" />
+    <Compile Include="Interfaces\IClientRead.cs" />
+    <Compile Include="Clients\Catalog\ClientProductPictures.cs" />
+    <Compile Include="Clients\Catalog\ClientProductVariants.cs" />
+    <Compile Include="Clients\Catalog\ClientShippingRateAdjustments.cs" />
+    <Compile Include="Clients\Catalog\ClientVariantGroups.cs" />
+    <Compile Include="Clients\Catalog\ClientVariantInventory.cs" />
+    <Compile Include="Clients\Client.cs" />
+    <Compile Include="Clients\ClientCatalog.cs" />
+    <Compile Include="Clients\ClientContent.cs" />
+    <Compile Include="Clients\ClientMarketing.cs" />
+    <Compile Include="Clients\ClientOrderProc.cs" />
+    <Compile Include="Clients\ClientPeople.cs" />
+    <Compile Include="Clients\Catalog\ClientProducts.cs" />
+    <Compile Include="Clients\Catalog\ClientAttributeGroups.cs" />
+    <Compile Include="Clients\Catalog\ClientAttributes.cs" />
+    <Compile Include="Clients\ClientSettings.cs" />
+    <Compile Include="Clients\ClientSystem.cs" />
+    <Compile Include="Clients\ClientTools.cs" />
+    <Compile Include="Clients\Marketing\ClientAdcodes.cs" />
+    <Compile Include="Clients\Content\ClientBlogCategories.cs" />
+    <Compile Include="Clients\Content\ClientBlogPosts.cs" />
+    <Compile Include="Clients\Content\ClientBlogs.cs" />
+    <Compile Include="Clients\Content\ClientLinks.cs" />
+    <Compile Include="Clients\Marketing\ClientAffiliates.cs" />
+    <Compile Include="Clients\Marketing\ClientCouponCodes.cs" />
+    <Compile Include="Clients\Settings\ClientCustomShippingMethods.cs" />
+    <Compile Include="Clients\Settings\ClientPaymentMethods.cs" />
+    <Compile Include="Clients\Settings\ClientRegions.cs" />
+    <Compile Include="Clients\Settings\ClientShippingProviders.cs" />
+    <Compile Include="Clients\System\ClientSessions.cs" />
+    <Compile Include="Clients\System\ClientStores.cs" />
+    <Compile Include="Clients\Settings\ClientTaxRates.cs" />
+    <Compile Include="Clients\Settings\ClientWarehouses.cs" />
+    <Compile Include="Clients\Tools\ClientCustomFields.cs" />
+    <Compile Include="Clients\Marketing\ClientDiscountMethods.cs" />
+    <Compile Include="Clients\Marketing\ClientDiscountRules.cs" />
+    <Compile Include="Clients\Marketing\ClientDrips.cs" />
+    <Compile Include="Clients\Marketing\ClientEmailTemplates.cs" />
+    <Compile Include="Clients\Marketing\ClientGiftCertificates.cs" />
+    <Compile Include="Clients\Marketing\ClientGiftCertificateTransactions.cs" />
+    <Compile Include="Clients\Marketing\ClientMailingLists.cs" />
+    <Compile Include="Clients\OrderProc\ClientCartItems.cs" />
+    <Compile Include="Clients\OrderProc\ClientCarts.cs" />
+    <Compile Include="Clients\Catalog\ClientCategories.cs" />
+    <Compile Include="Clients\OrderProc\ClientCreditCards.cs" />
+    <Compile Include="Clients\Catalog\ClientManufacturers.cs" />
+    <Compile Include="Clients\OrderProc\ClientOrderAddresses.cs" />
+    <Compile Include="Clients\OrderProc\ClientOrderItems.cs" />
+    <Compile Include="Clients\OrderProc\ClientOrderPayments.cs" />
+    <Compile Include="Clients\OrderProc\ClientOrderShipments.cs" />
+    <Compile Include="Clients\OrderProc\ClientOrderStatuses.cs" />
+    <Compile Include="Clients\Catalog\ClientProductLists.cs" />
+    <Compile Include="Clients\Catalog\ClientProductStatuses.cs" />
+    <Compile Include="Clients\Content\ClientPages.cs" />
+    <Compile Include="Clients\OrderProc\ClientQuotes.cs" />
+    <Compile Include="Clients\OrderProc\ClientSubscriptions.cs" />
+    <Compile Include="Clients\People\ClientAddresses.cs" />
+    <Compile Include="Clients\People\ClientCustomer.cs" />
+    <Compile Include="Clients\People\ClientCustomerPaymentMethods.cs" />
+    <Compile Include="Clients\People\ClientCustomerTypes.cs" />
+    <Compile Include="Clients\OrderProc\ClientOrders.cs" />
+    <Compile Include="Clients\People\ClientProfiles.cs" />
+    <Compile Include="Clients\People\ClientUsers.cs" />
+    <Compile Include="Clients\RestEngine.cs" />
+    <Compile Include="Clients\Configuration.cs" />
+    <Compile Include="Clients\Settings\ClientUrlRedirects.cs" />
+    <Compile Include="Deserializers\DynamicJsonDeserializer.cs" />
+    <Compile Include="Exceptions\DeserializerException.cs" />
+    <Compile Include="ExtensionMethods\MyExtensions.cs" />
+    <Compile Include="Filters\BaseObjects\BaseFilter.cs" />
+    <Compile Include="Filters\FilterList.cs" />
+    <Compile Include="Filters\FilterMultiId.cs" />
+    <Compile Include="Filters\FilterNestedOnly.cs" />
+    <Compile Include="Filters\FilterQuery.cs" />
+    <Compile Include="Filters\FilterSingle.cs" />
+    <Compile Include="Filters\FilterSingleNested.cs" />
+    <Compile Include="Interfaces\IClientResponse.cs" />
+    <Compile Include="Interfaces\IFilter.cs" />
+    <Compile Include="Interfaces\IRestEngine.cs" />
+    <Compile Include="Loggers\LoggingService.cs" />
+    <Compile Include="Models\Catalog\Attribute.cs" />
+    <Compile Include="Models\Catalog\AttributeGroup.cs" />
+    <Compile Include="Models\Catalog\Category.cs" />
+    <Compile Include="Models\Catalog\Manufacturer.cs" />
+    <Compile Include="Models\Marketing\AdCode.cs" />
+    <Compile Include="Models\Content\Blog.cs" />
+    <Compile Include="Models\Content\Blog_Category.cs" />
+    <Compile Include="Models\Content\Blog_Post.cs" />
+    <Compile Include="Models\Content\Link.cs" />
+    <Compile Include="Models\Content\Link_Child_Link.cs" />
+    <Compile Include="Models\Content\Page.cs" />
+    <Compile Include="Models\Marketing\Affiliate.cs" />
+    <Compile Include="Models\Marketing\Coupon_Code.cs" />
+    <Compile Include="Models\Marketing\Discount_Method.cs" />
+    <Compile Include="Models\Marketing\Discount_Method_Rule.cs" />
+    <Compile Include="Models\Marketing\Drip.cs" />
+    <Compile Include="Models\Marketing\Drip_Event.cs" />
+    <Compile Include="Models\Marketing\Drip_Member.cs" />
+    <Compile Include="Models\Marketing\Email_Template.cs" />
+    <Compile Include="Models\Marketing\Gift_Certificate.cs" />
+    <Compile Include="Models\Marketing\Gift_Certificate_Transaction.cs" />
+    <Compile Include="Models\Marketing\Mailing_List.cs" />
+    <Compile Include="Models\Marketing\Mailing_List_Member.cs" />
+    <Compile Include="Models\BaseClasses\BaseAudit.cs" />
+    <Compile Include="Models\OrderProc\Order_Address.cs" />
+    <Compile Include="Models\OrderProc\Order_Item_Personalization.cs" />
+    <Compile Include="Models\OrderProc\Order_Status.cs" />
+    <Compile Include="Models\People\Customer_Address.cs" />
+    <Compile Include="Models\People\Customer_Custom_Field.cs" />
+    <Compile Include="Models\OrderProc\Order_Custom_Field.cs" />
+    <Compile Include="Models\Catalog\Product.cs" />
+    <Compile Include="Models\Catalog\ProductList.cs" />
+    <Compile Include="Models\Catalog\ProductListItem.cs" />
+    <Compile Include="Models\Catalog\ProductPicture.cs" />
+    <Compile Include="Models\Catalog\ProductStatus.cs" />
+    <Compile Include="Models\Catalog\ProductVariant.cs" />
+    <Compile Include="Models\Catalog\Product_Attribute.cs" />
+    <Compile Include="Models\Catalog\Product_Category.cs" />
+    <Compile Include="Models\Catalog\Product_Child_Product.cs" />
+    <Compile Include="Models\Catalog\Product_Custom_Field.cs" />
+    <Compile Include="Models\Catalog\Product_Personalization.cs" />
+    <Compile Include="Models\Catalog\Product_Picture.cs" />
+    <Compile Include="Models\Catalog\Product_Price.cs" />
+    <Compile Include="Models\Catalog\Product_Related.cs" />
+    <Compile Include="Models\Catalog\Product_Review.cs" />
+    <Compile Include="Models\Catalog\Product_Shipping_Rate_Adjustment.cs" />
+    <Compile Include="Models\Catalog\Product_Variant.cs" />
+    <Compile Include="Models\Catalog\Product_Variant_Inventory.cs" />
+    <Compile Include="Models\Catalog\ShippingRateAdjustment.cs" />
+    <Compile Include="Models\Catalog\VariantGroup.cs" />
+    <Compile Include="Models\Catalog\VariantInventory.cs" />
+    <Compile Include="Models\Catalog\VariantInventoryPricing.cs" />
+    <Compile Include="Models\Catalog\VariantInventoryvariant.cs" />
+    <Compile Include="Models\OrderProc\Order_Item.cs" />
+    <Compile Include="Models\OrderProc\Order_Item_Variant.cs" />
+    <Compile Include="Models\OrderProc\Order_Payment.cs" />
+    <Compile Include="Models\OrderProc\Order_Shipment.cs" />
+    <Compile Include="Models\People\Address.cs" />
+    <Compile Include="Models\People\Customer.cs" />
+    <Compile Include="Models\People\CustomerPaymentMethod.cs" />
+    <Compile Include="Models\People\CustomerType.cs" />
+    <Compile Include="Models\OrderProc\Order.cs" />
+    <Compile Include="Models\People\Customer_Reward_Points.cs" />
+    <Compile Include="Models\People\Profile.cs" />
+    <Compile Include="Models\People\User.cs" />
+    <Compile Include="Models\Settings\Custom_Shipping_Method.cs" />
+    <Compile Include="Models\Settings\Custom_Shipping_Method_Rule.cs" />
+    <Compile Include="Models\Settings\Payment_Method.cs" />
+    <Compile Include="Models\Settings\Payment_Method_Field.cs" />
+    <Compile Include="Models\Settings\Payment_Method_Store.cs" />
+    <Compile Include="Models\Settings\Region.cs" />
+    <Compile Include="Models\Settings\Shipping_Provider.cs" />
+    <Compile Include="Models\Settings\Shipping_Provider_Service.cs" />
+    <Compile Include="Models\Tools\Custom_Fields.cs" />
+    <Compile Include="Models\System\Session.cs" />
+    <Compile Include="Models\System\Store.cs" />
+    <Compile Include="Models\Settings\Tax_Rate.cs" />
+    <Compile Include="Models\Settings\Url_Redirect.cs" />
+    <Compile Include="Models\Settings\Warehouse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseClasses\BaseRepoRead.cs" />
+    <Compile Include="Repositories\BaseClasses\BaseRepoReadWrite.cs" />
+    <Compile Include="Interfaces\IReadRepo.cs" />
+    <Compile Include="Repositories\Catalog\RepoManufacturer.cs" />
+    <Compile Include="Repositories\Catalog\RepoProduct.cs" />
+    <Compile Include="Responses\ClientResponse.cs" />
+    <Compile Include="Repositories\OrderProc\RepoOrderAddress.cs" />
+    <Compile Include="Repositories\OrderProc\RepoOrder.cs" />
+    <Compile Include="Repositories\OrderProc\RepoOrderStatus.cs" />
+    <Compile Include="Repositories\People\RepoCustomerPaymentMethod.cs" />
+    <Compile Include="Repositories\People\RepoCustomer.cs" />
+    <Compile Include="Repositories\People\RepoCustomerType.cs" />
+    <Compile Include="Responses\RepoResponse.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Americommerce4Net", "Americommerce4Net\Americommerce4Net.csproj", "{2749DC52-412F-4E0D-8C02-F5740CA482B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Americommerce4Net_Tests", "Americommerce4Net_Tests\Americommerce4Net_Tests.csproj", "{FEA20FDA-392A-47EE-8F22-ECAE7848E163}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF4F801A-9A17-44E2-8F9A-673E4F3CBEF7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6A335F7E-AEB6-412C-8A54-BA7F8AE15132}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2749DC52-412F-4E0D-8C02-F5740CA482B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2749DC52-412F-4E0D-8C02-F5740CA482B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2749DC52-412F-4E0D-8C02-F5740CA482B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2749DC52-412F-4E0D-8C02-F5740CA482B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA20FDA-392A-47EE-8F22-ECAE7848E163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA20FDA-392A-47EE-8F22-ECAE7848E163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA20FDA-392A-47EE-8F22-ECAE7848E163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA20FDA-392A-47EE-8F22-ECAE7848E163}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

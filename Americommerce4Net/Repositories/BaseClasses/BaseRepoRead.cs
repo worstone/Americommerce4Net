@@ -1,0 +1,135 @@
+using System.Collections.Generic;
+using Americommerce4Net.ExtensionMethods;
+using System;
+
+
+namespace Americommerce4Net.Repositories
+{
+    public class BaseRepoRead<T> : Americommerce4Net.IReadRepo<T>
+    {
+        private string _ResourceName;
+        protected string ResourceName {
+            get {
+                return _ResourceName;
+            }
+        }
+        
+        
+        private IClientRead _ReadClient;
+        protected IClientRead ReadClient {
+            get {
+                return _ReadClient;
+            }
+        }
+
+        protected BaseRepoRead(IClientRead client, string resourceName) {
+            _ReadClient = client;
+            _ResourceName = resourceName;
+        }
+
+        public virtual IRepoResponse<T> Get(int id) {
+            var response = ReadClient.Get(id);
+            
+            var repo_response = new RepoResponse<T>();
+            repo_response.Data = response.Data.ToObject<T>();
+            repo_response.ErrorException = response.RestResponse.ErrorException;
+            
+            return repo_response;
+        }
+
+        public virtual IRepoResponse<T> Get(int id, FilterSingle filter) {
+            var response = ReadClient.Get(id, filter);
+
+            var repo_response = new RepoResponse<T>();
+            repo_response.Data = response.Data.ToObject<T>();
+            repo_response.ErrorException = response.RestResponse.ErrorException;
+            
+            return repo_response;
+        }
+
+        public virtual IRepoResponse<List<T>> Get(FilterMultiId filter) {
+            var response = ReadClient.Get(filter);
+
+            var repo_response = new RepoResponse<List<T>>();
+            repo_response.Data = new List<T>();
+            repo_response.ErrorException = response.RestResponse.ErrorException;
+
+            foreach (var item in response.Data[ResourceName]) {
+                repo_response.Data.Add(item.ToObject<T>());
+            }
+            return repo_response;
+        }
+
+        public virtual IRepoResponse<List<T>> GetAll() {
+            var filter = new FilterList()
+                .Query(new FilterQuery()
+                .FieldName("id")
+                .FieldValue("0")
+                .Compare_GreaterThanOrEqual());
+
+            return RecordPaging(filter);
+        }
+
+        public virtual IRepoResponse<List<T>> GetAll(FilterList filter) {
+            return RecordPaging(filter);
+        }
+
+        public virtual IRepoResponse<List<T>> Get_GreaterThanOrEqualTo_ModifiedDate(DateTime dateTime) {
+            var filter = new FilterList()
+                .Query(new FilterQuery()
+                .FieldName("updated_at")
+                .FieldValue(dateTime.To_ISO_8601_DateTime_Format())
+                .Compare_GreaterThanOrEqual());
+
+            return RecordPaging(filter);
+        }
+
+        protected IRepoResponse<List<T>> RecordPaging(FilterList filterList) {
+
+
+            var repo_response = new RepoResponse<List<T>>();
+            repo_response.Data = new List<T>();
+            
+
+            var items = new List<T>();
+
+            int total_count = 0;
+            int page_count = 0;
+            int page_current = 1;
+            int records_per_page = 100;
+
+            do {
+                var response = ReadClient.Get(filterList
+                .Page(page_current)
+                .Count(records_per_page));
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+                if (response.RestResponse.ErrorException == null) {
+                    if (response.RestResponse.StatusCode == System.Net.HttpStatusCode.OK) {
+                        if (page_current == 1) {
+                            total_count = (int)response.Data["total_count"].Value;
+
+                            var pageCount = total_count / records_per_page;
+                            var remainingCount = total_count % records_per_page;
+                            if (remainingCount > 0) {
+                                page_count = pageCount + 1;
+                            } else {
+                                page_count = pageCount;
+                            }
+                        }
+                        foreach (var item in response.Data[ResourceName]) {
+                            repo_response.Data.Add(item.ToObject<T>());
+                        }
+                        page_current++;
+                    } else {
+                        repo_response.ErrorException = new Exception(string.Format("Unexpected  HttpStatusCode - {0}", response.RestResponse.StatusCode));
+                        break;
+                    }
+                }
+
+            } while (page_current <= page_count);
+
+            return repo_response;
+        }
+
+    }
+}
