@@ -34,7 +34,10 @@ Basic Configuration
 -------------
 
 ```
-var configuration = new Configuration("https://--yourstore--/api/v1", "--your api access token--") ;
+var configuration = new Configuration(
+	"https://--yourstore--/api/v1", 
+	"--your api access token--"
+	) ;
             
 var Client = new Client(configuration);
 ```
@@ -84,7 +87,7 @@ and Data is dynamic
 ```
 Newtonsoft.Json.Linq.JToken.ToObject<T>()
 ```
-Can be used to deserialized to and object.
+Can be used to deserialized to an object.
 
 Query Syntax / Filters
 -------------
