@@ -146,7 +146,7 @@ int id = 18;
 var obj = new {
 	bullets = "<p>Test</p>", 
 	item_name = "Natalie Dining Table Set"
-	}
+	};
 
 var client = new ClientCatalog();
 var response = client.Products.Update(id, obj);
@@ -169,7 +169,7 @@ var obj = new {
 		retail = 150.00,
 		weight = 25.00,
 		long_description_1 = "<p>TEST 123456789 Product Long Description</p>"
-		}
+		};
 
 var client = new ClientCatalog();
 var response = client.Products.Create(obj);
