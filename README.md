@@ -90,7 +90,7 @@ and Data is dynamic {Newtonsoft.Json.Linq.JObject}
 ```
 Newtonsoft.Json.Linq.JObject.ToObject<T>()
 ```
-Can use the JObject.ToObject<T>() method to deserialized to and object.
+Can use the JObject.ToObject<<T>>() method to deserialized to and object.
 
 Query Syntax / Filters
 -------------
