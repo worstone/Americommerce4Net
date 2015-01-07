@@ -128,7 +128,7 @@ Models
 -------------
 Based on the AmeriCommerce v1 API Documentation, Resource classes are here. Some classes need to be tested a bit more
 
-Accessing Store Data
+Reading Store Data
 -------------
 ```
 int id = 1;
