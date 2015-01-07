@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,26 +8,26 @@ using Americommerce4Net;
 namespace Americommerce4Net_Tests
 {
     [TestFixture]
-    public class ClientPeople_Tests
+    public class ClientProducts_Tests
     {
         [Test]
-        public void ClientPeople_Get_Customer_By_Id_Test() {
+        public void ClientProducts_Get_Product_By_Id_Test() {
             int id = 1;
-            var client = new ClientPeople();
-            var response = client.Customers.Get(id);
+            var client = new ClientCatalog();
+            var response = client.Products.Get(id);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.RestResponse.StatusCode);
             if (response.Data != null) {
-                Americommerce4Net.Models.Customer customer = response.Data.ToObject<Americommerce4Net.Models.Customer>();
-                Assert.AreEqual(id, customer.id);
+                Americommerce4Net.Models.Product product = response.Data.ToObject<Americommerce4Net.Models.Product>();
+                Assert.AreEqual(id, product.id);
             }
         }
 
         [Test]
-        public void ClientPeople_Get_First_100_Customers_Test() {
+        public void ClientProducts_Get_First_100_Products_Test() {
 
-            var items = new List<Americommerce4Net.Models.Customer>();
+            var items = new List<Americommerce4Net.Models.Product>();
 
-            var client = new ClientPeople();
+            var client = new ClientCatalog();
             var filter = new FilterList()
                 .Query(new FilterQuery()
                 .FieldName("id")
@@ -36,22 +36,19 @@ namespace Americommerce4Net_Tests
                 .Page(1)
                 .Count(100);
 
-            var response = client.Customers.Get(filter);
+            var response = client.Products.Get(filter);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.RestResponse.StatusCode);
             if (response.Data != null) {
-                foreach (var item in response.Data[client.Customers.ResourceName]) {
-                    items.Add(item.ToObject<Americommerce4Net.Models.Customer>());
+                foreach (var item in response.Data[client.Products.ResourceName]) {
+                    items.Add(item.ToObject<Americommerce4Net.Models.Product>());
                 }
 
-                Assert.Greater(items.Count,0);
+                Assert.Greater(items.Count, 0);
 
                 int total_count = (int)response.Data["total_count"].Value;
 
                 Assert.Greater(total_count, 0);
             }
-
         }
-
-
     }
 }

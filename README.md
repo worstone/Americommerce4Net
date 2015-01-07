@@ -80,9 +80,9 @@ public interface IClientResponse<T>
         global::RestSharp.IRestResponse RestResponse { get; set; }
     }
 ```
-and Data is dynamic
+and Data is dynamic {Newtonsoft.Json.Linq.JObject}
 ```
-Newtonsoft.Json.Linq.JToken.ToObject<T>()
+Newtonsoft.Json.Linq.JObject.ToObject<T>()
 ```
 Can be used to deserialized to and object.
 

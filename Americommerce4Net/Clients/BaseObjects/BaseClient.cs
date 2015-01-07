@@ -20,7 +20,7 @@ namespace Americommerce4Net.Clients
 {
     public class BaseClient : Americommerce4Net.IClientRead
     {
-        protected string ResourceName { get; set; }
+        public string ResourceName { get; protected set; }
 
         protected internal IRestEngine _RestEngine;
 
