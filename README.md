@@ -198,7 +198,7 @@ if(response.ErrorException == null){
 	products = response.Data;
 }
 ```
-The Repositories also have paging & throttling logic built in.
+The Repositories also has paging & throttling logic built in.
 
 Note:The Repositories require AppSettings in the App.config to be set.
 		
