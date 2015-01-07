@@ -22,7 +22,7 @@ AmeriCommerce v1 API Documentation
 
 Namespace
 ---------
-```
+```csharp
 using Americommerce4Net;
 
 ```
@@ -36,7 +36,7 @@ To connect to the API, you need the following credentials:
 Basic Configuration
 -------------
 
-```
+```csharp
 var configuration = new Configuration(
 								"https://--yourstore--/api/v1",
 								"--your api access token--"
@@ -47,7 +47,7 @@ var Client = new Client(configuration);
 
 or
 
-```
+```csharp
 var Client = new Client();  // This will read AppSettings from the App.config
 ```
 
@@ -79,7 +79,7 @@ Each of the functionality grouped clients can be used independently, depending o
 
 All clients respond with IClientResponse interface
 
-```
+```csharp
 public interface IClientResponse<T>
     {
         T Data { get; set; }
@@ -87,7 +87,7 @@ public interface IClientResponse<T>
     }
 ```
 and Data is dynamic {Newtonsoft.Json.Linq.JObject}
-```
+```csharp
 Newtonsoft.Json.Linq.JObject.ToObject<T>()
 ```
 Can use the JObject.ToObject method to deserialized to an object.
@@ -95,7 +95,7 @@ Can use the JObject.ToObject method to deserialized to an object.
 Query Syntax / Filters
 -------------
 The filters use fluent interface such as 
-```
+```csharp
 var client = new ClientCatalog();
 var filter = new FilterList()
                 .Query(new FilterQuery()
@@ -106,7 +106,7 @@ var filter = new FilterList()
 var response = client.Products.Get(filter);
 ```
 or
-```
+```csharp
 var client = new ClientOrderProc();
 var filter = new FilterList()
 	.Query(new FilterQuery()
@@ -125,7 +125,7 @@ Based on the AmeriCommerce v1 API Documentation, Resource classes are here. Some
 
 Reading Store Data
 -------------
-```
+```csharp
 int id = 1;
 var client = new ClientCatalog();
 var response = client.Products.Get(id);
@@ -136,7 +136,7 @@ if (response.Data != null) {
 ```
 Updating Store Data
 -------------
-```
+```csharp
 int id = 18;
 var obj = new {
 	bullets = "<p>Test</p>", 
@@ -155,7 +155,7 @@ if (response.Data != null) {
 
 Create Store Data
 -------------
-```
+```csharp
 var obj = new {
 		item_number = "123456789",
 		item_name = "TEST 123456789 Product", 
@@ -179,7 +179,7 @@ Delete Store Data
 -------------
 Note: Configuration.AllowDeletions must be true
 
-```
+```csharp
 int id = 18;
 var client = new ClientCatalog();
 var response = client.Products.Delete(id);
@@ -190,7 +190,7 @@ Repositories
 -------------
 There are a few Repositories that have been put together to abstract away the clients
 
-```
+```csharp
 var repo = new RepoProduct();
 var response = repo.GetAll()
 List<Product> products;
