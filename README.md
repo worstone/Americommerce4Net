@@ -192,7 +192,7 @@ There are a few Repositories that have been put together to abstract away the cl
 
 ```csharp
 var repo = new RepoProduct();
-var response = repo.GetAll()
+var response = repo.GetAll();
 List<Product> products;
 if(response.ErrorException == null){
 	products = response.Data;
