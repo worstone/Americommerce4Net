@@ -19,12 +19,6 @@ AmeriCommerce v1 API Documentation
 ------------
 - https://github.com/americommerce/ac-rest-api
 
-Connection
-------------
-To connect to the API, you need the following credentials:
-
-- Secure URL pointing to a Americommerce store (https://--yourstore--/api/v1)
-- Api Access Token
 
 Namespace
 ---------
@@ -32,6 +26,12 @@ Namespace
 using Americommerce4Net;
 
 ```
+Connection
+------------
+To connect to the API, you need the following credentials:
+
+- Secure URL pointing to a Americommerce store (https://--yourstore--/api/v1)
+- Api Access Token
 
 Basic Configuration
 -------------
@@ -119,11 +119,6 @@ var filter = new FilterList()
 var response = client.Orders.Get(filter);
 ```
 
-Repositories
--------------
-There are a few Repositories that have been put together to abstract away the clients
-
-
 Models
 -------------
 Based on the AmeriCommerce v1 API Documentation, Resource classes are here. Some classes need to be tested a bit more
@@ -190,6 +185,22 @@ var client = new ClientCatalog();
 var response = client.Products.Delete(id);
 Assert.AreEqual(true, response.Data);
 ```
+
+Repositories
+-------------
+There are a few Repositories that have been put together to abstract away the clients
+
+```
+var repo = new RepoProduct();
+var response = repo.GetAll()
+List<Product> products;
+if(response.ErrorException == null){
+	products = response.Data;
+}
+```
+The Repositories also have paging & throttling logic build in.
+
+Note:The Repositories require AppSettings in the App.config to be set.
 		
 License
 -------------
