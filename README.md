@@ -90,7 +90,7 @@ and Data is dynamic {Newtonsoft.Json.Linq.JObject}
 ```
 Newtonsoft.Json.Linq.JObject.ToObject<T>()
 ```
-Can use the JObject.ToObject<<T>>() method to deserialized to and object.
+Can use the JObject.ToObject method to deserialized to an object.
 
 Query Syntax / Filters
 -------------
@@ -105,6 +105,7 @@ var filter = new FilterList()
                 .ExpandNested("custom_fields", "categories", "pricing", "pictures");
 var response = client.Products.Get(filter);
 ```
+or
 ```
 var client = new ClientOrderProc();
 var filter = new FilterList()
@@ -125,7 +126,7 @@ There are a few Repositories that have been put together to abstract away the cl
 
 Models
 -------------
-Based on the AmeriCommerce v1 API Documentation, Resource classes are here.
+Based on the AmeriCommerce v1 API Documentation, Resource classes are here. Some classes need to be tested a bit more
 
 Accessing Store Data
 -------------
@@ -142,7 +143,10 @@ Updating Store Data
 -------------
 ```
 int id = 18;
-var obj = new {bullets = "<p>Test</p>", item_name = "Natalie Dining Table Set"}
+var obj = new {
+	bullets = "<p>Test</p>", 
+	item_name = "Natalie Dining Table Set"
+	}
 
 var client = new ClientCatalog();
 var response = client.Products.Update(id, obj);
