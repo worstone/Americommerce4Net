@@ -3,14 +3,17 @@ Americommerce4Net
 
 .Net REST client for the AmeriCommerce v1 API
 
-Requirements
+Americommerce4Net Dependencies
 ------------
-
 - .NET Framwork 4 - http://msdn.microsoft.com/en-US/vstudio/aa496123.aspx
 - log4net - http://logging.apache.org/log4net/
 - Newtonsoft.Json - http://james.newtonking.com/projects/json-net.aspx
-- NUnit - http://nunit.org/
 - RestSharp - http://restsharp.org/
+
+Americommerce4Net_Tests Dependencies
+------------
+- Above Dependencies 
+- NUnit - http://nunit.org/
 
 AmeriCommerce v1 API Documentation
 ------------
@@ -51,7 +54,7 @@ var Client = new Client();  // This will read AppSettings from the App.config
 Clients
 -------------
 
-Main Client includes all client grouped by functionality 
+Main Client includes all clients grouped by functionality 
 
 * Client
 	* Catalog
@@ -63,7 +66,7 @@ Main Client includes all client grouped by functionality
 	* System
 	* Tools
 
-Each of the functionality grouped clients can be used independently 
+Each of the functionality grouped clients can be used independently, depending on your needs
 
 * ClientCatalog
 * ClientContent
@@ -87,20 +90,34 @@ and Data is dynamic {Newtonsoft.Json.Linq.JObject}
 ```
 Newtonsoft.Json.Linq.JObject.ToObject<T>()
 ```
-Can be used to deserialized to and object.
+Can use the JObject.ToObject<T>() method to deserialized to and object.
 
 Query Syntax / Filters
 -------------
-The filters fluent api such as 
+The filters use fluent interface such as 
 ```
+var client = new ClientCatalog();
 var filter = new FilterList()
                 .Query(new FilterQuery()
                 .FieldName("updated_at")
                 .FieldValue(dateTime.To_ISO_8601_DateTime_Format())
                 .Compare_GreaterThanOrEqual())
                 .ExpandNested("custom_fields", "categories", "pricing", "pictures");
-var response = Client.Get(id, filter);
+var response = client.Products.Get(filter);
 ```
+```
+var client = new ClientOrderProc();
+var filter = new FilterList()
+	.Query(new FilterQuery()
+	.FieldName("id")
+	.FieldValue("0")
+	.Compare_GreaterThan())
+	.Page(1)
+	.Count(100);
+
+var response = client.Orders.Get(filter);
+```
+
 Repositories
 -------------
 There are a few Repositories that have been put together to abstract away the clients
@@ -112,22 +129,63 @@ Based on the AmeriCommerce v1 API Documentation, Resource classes are here.
 
 Accessing Store Data
 -------------
-
-Examples coming soon
-
+```
+int id = 1;
+var client = new ClientCatalog();
+var response = client.Products.Get(id);
+if (response.Data != null) {
+	Americommerce4Net.Models.Product product = response.Data.ToObject<Americommerce4Net.Models.Product>();
+	Assert.AreEqual(id, product.id);
+}
+```
 Updating Store Data
 -------------
-Examples coming soon
+```
+int id = 18;
+var obj = new {bullets = "<p>Test</p>", item_name = "Natalie Dining Table Set"}
+
+var client = new ClientCatalog();
+var response = client.Products.Update(id, obj);
+if (response.Data != null) {
+	Americommerce4Net.Models.Product product = response.Data.ToObject<Americommerce4Net.Models.Product>();
+	Assert.AreEqual(id, product.id);
+	Assert.AreEqual("<p>Test</p>", product.bullets);
+	Assert.AreEqual("Natalie Dining Table Set", product.item_name);
+}
+```
 
 Create Store Data
 -------------
-Examples coming soon		
+```
+var obj = new {
+		item_number = "123456789",
+		item_name = "TEST 123456789 Product", 
+		price = 99.00, 
+		cost = 50.00, 
+		retail = 150.00,
+		weight = 25.00,
+		long_description_1 = "<p>TEST 123456789 Product Long Description</p>"
+		}
+
+var client = new ClientCatalog();
+var response = client.Products.Create(obj);
+if (response.Data != null) {
+	Americommerce4Net.Models.Product product = response.Data.ToObject<Americommerce4Net.Models.Product>();
+	Assert.AreEqual("123456789", product.item_number);
+	Assert.AreEqual("TEST 123456789 Product", product.item_name);
+}		
+```
 
 Delete Store Data
 -------------
 Note: Configuration.AllowDeletions must be true
 
-Examples coming soon
+```
+int id = 18;
+var client = new ClientCatalog();
+var response = client.Products.Delete(id);
+Assert.AreEqual(true, response.Data);
+```
 		
 License
 -------------
