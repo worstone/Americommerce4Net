@@ -34,7 +34,10 @@ Basic Configuration
 -------------
 
 ```
-var configuration = new Configuration("https://--yourstore--/api/v1", "--your api access token--") ;
+var configuration = new Configuration(
+								"https://--yourstore--/api/v1",
+								"--your api access token--"
+								) ;
             
 var Client = new Client(configuration);
 ```
