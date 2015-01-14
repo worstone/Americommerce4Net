@@ -48,9 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientOrderProc_Tests.cs" />
-    <Compile Include="ClientPeople_Tests.cs" />
-    <Compile Include="ClientProducts_Tests.cs" />
+    <Compile Include="ClientOrderProc_TF.cs" />
+    <Compile Include="ClientPeople_TF.cs" />
+    <Compile Include="ClientProducts_TF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
