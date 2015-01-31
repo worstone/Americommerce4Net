@@ -49,15 +49,15 @@ namespace Americommerce4Net
 
         private void GetConfiguration() {
 
-            ServiceURL = ConfigurationManager.AppSettings["ServiceURL"];
-            ApiAccessToken = ConfigurationManager.AppSettings["ApiAccessToken"];
-            RequestTimeout = int.Parse(ConfigurationManager.AppSettings["RequestTimeout"]);
-            ErrorRetryMax = int.Parse(ConfigurationManager.AppSettings["ErrorRetryMax"]);
-            ErrorRetryDelay = int.Parse(ConfigurationManager.AppSettings["ErrorRetryDelay"]);
-            ThrottlingEnabled = Boolean.Parse(ConfigurationManager.AppSettings["ThrottlingEnabled"]);
-            ThrottlingDelay = int.Parse(ConfigurationManager.AppSettings["ThrottlingDelay"]);
-            AllowDeletions = Boolean.Parse(ConfigurationManager.AppSettings["AllowDeletions"]);
-            EnableInfoLogging = Boolean.Parse(ConfigurationManager.AppSettings["EnableLogging"]);
+            ServiceURL = ConfigurationManager.AppSettings["Americommerce4Net_ServiceURL"];
+            ApiAccessToken = ConfigurationManager.AppSettings["Americommerce4Net_ApiAccessToken"];
+            RequestTimeout = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_RequestTimeout"]);
+            ErrorRetryMax = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_ErrorRetryMax"]);
+            ErrorRetryDelay = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_ErrorRetryDelay"]);
+            ThrottlingEnabled = Boolean.Parse(ConfigurationManager.AppSettings["Americommerce4Net_ThrottlingEnabled"]);
+            ThrottlingDelay = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_ThrottlingDelay"]);
+            AllowDeletions = Boolean.Parse(ConfigurationManager.AppSettings["Americommerce4Net_AllowDeletions"]);
+            EnableInfoLogging = Boolean.Parse(ConfigurationManager.AppSettings["Americommerce4Net_EnableLogging"]);
         }
     }
 }
