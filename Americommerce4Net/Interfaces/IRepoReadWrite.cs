@@ -1,5 +1,5 @@
-#region License
-//   Copyright 2015 Ken Worst - R.C. Worst & Company Inc.
+﻿#region License
+//   Copyright 2014 Ken Worst - R.C. Worst & Company Inc.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,16 +14,14 @@
 //   limitations under the License. 
 #endregion
 
-using Americommerce4Net.Models;
+using System;
 
-namespace Americommerce4Net.Repositories
+namespace Americommerce4Net
 {
-    public class RepoWarehouse : BaseRepoReadWrite<Warehouse>
+    interface IRepoReadWrite<T>
     {
-        readonly static IClientReadWrite _Client = new ClientSettings().Warehouses;
-
-        public RepoWarehouse()
-            : base(_Client, "warehouses") {
-        }
+        Americommerce4Net.IRepoResponse<T> Create(object obj);
+        Americommerce4Net.IRepoResponse<bool> Delete(int id);
+        Americommerce4Net.IRepoResponse<T> Update(int id, object obj);
     }
 }

@@ -226,7 +226,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseClasses\BaseRepoRead.cs" />
     <Compile Include="Repositories\BaseClasses\BaseRepoReadWrite.cs" />
-    <Compile Include="Interfaces\IReadRepo.cs" />
+    <Compile Include="Interfaces\IRepoRead.cs" />
+    <Compile Include="Interfaces\IRepoReadWrite.cs" />
     <Compile Include="Repositories\Catalog\RepoManufacturer.cs" />
     <Compile Include="Repositories\Catalog\RepoProduct.cs" />
     <Compile Include="Repositories\Catalog\RepoAttribute.cs" />

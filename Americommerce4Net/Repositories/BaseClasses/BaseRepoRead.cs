@@ -20,7 +20,7 @@ using System;
 
 namespace Americommerce4Net.Repositories
 {
-    public class BaseRepoRead<T> : Americommerce4Net.IReadRepo<T>
+    public class BaseRepoRead<T> : Americommerce4Net.IRepoRead<T>
     {
         private string _ResourceName;
         protected string ResourceName {
@@ -28,7 +28,6 @@ namespace Americommerce4Net.Repositories
                 return _ResourceName;
             }
         }
-        
         
         private IClientRead _ReadClient;
         protected IClientRead ReadClient {
