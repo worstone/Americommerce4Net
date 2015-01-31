@@ -229,6 +229,14 @@
     <Compile Include="Interfaces\IReadRepo.cs" />
     <Compile Include="Repositories\Catalog\RepoManufacturer.cs" />
     <Compile Include="Repositories\Catalog\RepoProduct.cs" />
+    <Compile Include="Repositories\Settings\RepoAttribute.cs" />
+    <Compile Include="Repositories\Settings\RepoAttributeGroup.cs" />
+    <Compile Include="Repositories\Settings\RepoCategory.cs" />
+    <Compile Include="Repositories\Settings\RepoPaymentMethod.cs" />
+    <Compile Include="Repositories\Settings\RepoRegion.cs" />
+    <Compile Include="Repositories\Settings\RepoTaxRate.cs" />
+    <Compile Include="Repositories\Settings\RepoUrlRedirect.cs" />
+    <Compile Include="Repositories\Settings\RepoWarehouse.cs" />
     <Compile Include="Responses\ClientResponse.cs" />
     <Compile Include="Repositories\OrderProc\RepoOrderAddress.cs" />
     <Compile Include="Repositories\OrderProc\RepoOrder.cs" />
