@@ -18,7 +18,7 @@ using System;
 
 namespace Americommerce4Net
 {
-    interface IRepoReadWrite<T>
+    public interface IRepoReadWrite<T>
     {
         Americommerce4Net.IRepoResponse<T> Create(object obj);
         Americommerce4Net.IRepoResponse<bool> Delete(int id);
