@@ -32,7 +32,9 @@ namespace Americommerce4Net.ExtensionMethods
         }
 
         public static string To_ISO_8601_DateTime_Format(this DateTime dateTime) {
-            return dateTime.ToString("yyyy-MM-dd'T'HH:mm:ss.FFFFFFK");
+            return dateTime.ToString("s") + dateTime.ToString("zzz");
+            //return dateTime.ToString("yyyy-MM-dd'T'HH:mm:ss.FFFFFFK");
+            //return dateTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
         }
     }
 }

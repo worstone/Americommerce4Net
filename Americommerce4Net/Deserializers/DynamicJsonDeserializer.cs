@@ -43,7 +43,11 @@ namespace Americommerce4Net.Deserializers
                     throw new DeserializerException(ex.Message) { RestResponse = response };
                 }
             } else {
-                LoggingService.Log(this).ErrorFormat("DynamicJsonDeserializer | {0}", response.ResponseUri, response.ErrorException.Message);
+                if (response.ErrorException != null) {
+                    LoggingService.Log(this).ErrorFormat("DynamicJsonDeserializer | {0}", response.ResponseUri, response.ErrorException.Message);
+                } else {
+                    LoggingService.Log(this).WarnFormat("DynamicJsonDeserializer | {0}", response.ResponseUri);
+                }
                 throw new DeserializerException(response.ErrorException.Message) { RestResponse = response };
             }
         }

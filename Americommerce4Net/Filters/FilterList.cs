@@ -57,12 +57,13 @@ namespace Americommerce4Net
         }
 
         public override void AddFilter(IRestRequest request) {
+            QueryBuilder(request, _Query);
             PageBuilder(request, _Page);
             CountBuilder(request, _Count);
             ExpandBuilder(request, _ExpandNested);
             SortBuilder(request, _Sort);
             FieldsBuilder(request, _Fields);
-            QueryBuilder(request, _Query);
+            //QueryBuilder(request, _Query);
         }
     }
 }

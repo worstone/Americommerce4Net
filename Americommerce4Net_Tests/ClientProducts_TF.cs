@@ -9,7 +9,7 @@ namespace Americommerce4Net_Tests
     {
         [Test]
         public void ClientProducts_Get_Product_By_Id_Test() {
-            int id = 1;
+            int id = 28;
             var client = new ClientCatalog();
             var response = client.Products.Get(id);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.RestResponse.StatusCode);
