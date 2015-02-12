@@ -134,7 +134,7 @@ namespace Americommerce4Net.Clients
 
             request.RequestFormat = DataFormat.Json;
             request.AddHeader("X-AC-Auth-Token", _Configuration.ApiAccessToken);
-            //request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Cache-Control", "no-cache");
             request.AddParameter("Accept", "application/json", ParameterType.HttpHeader);
 
             restClient.AddHandler("application/json", new Deserializers.DynamicJsonDeserializer());

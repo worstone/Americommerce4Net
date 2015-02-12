@@ -20,7 +20,7 @@ using Newtonsoft.Json;
 
 namespace Americommerce4Net.ExtensionMethods
 {
-    internal static class MyExtensions
+    public static class MyExtensions
     {
         public static Type GetListType<T>(this List<T> _) {
             return typeof(T);
