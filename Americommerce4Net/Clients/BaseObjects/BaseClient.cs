@@ -22,6 +22,15 @@ namespace Americommerce4Net.Clients
     {
         public string ResourceName { get; protected set; }
 
+        public bool CachingOn {
+            get {
+                return _RestEngine.CachingOn;
+            }
+            set {
+                _RestEngine.CachingOn = value;
+            }
+        }
+        
         protected internal IRestEngine _RestEngine;
 
         protected internal BaseClient(IRestEngine restEngine) {

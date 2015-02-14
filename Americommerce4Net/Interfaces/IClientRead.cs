@@ -23,5 +23,6 @@ namespace Americommerce4Net
         IClientResponse<dynamic> Get(FilterMultiId filter);
         IClientResponse<dynamic> Get(int recordId);
         IClientResponse<dynamic> Get(int recordId, FilterSingle filter);
+        bool CachingOn { get; set; }
     }
 }

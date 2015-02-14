@@ -23,5 +23,8 @@ namespace Americommerce4Net
         IClientResponse<T> GetData<T>(string resourceEndpoint, IFilter filter) where T : new();
         IClientResponse<T> PostData<T>(string resourceEndpoint, string json) where T : new();
         IClientResponse<T> PutData<T>(string resourceEndpoint, string json) where T : new();
+        bool CachingOn { get; set; }
     }
+
+
 }
