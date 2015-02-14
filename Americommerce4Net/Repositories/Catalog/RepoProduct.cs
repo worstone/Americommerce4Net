@@ -41,8 +41,9 @@ namespace Americommerce4Net.Repositories
                 .Query(new FilterQuery()
                 .FieldName("updated_at")
                 .FieldValue(dateTime.To_ISO_8601_DateTime_Format())
-                .Compare_GreaterThanOrEqual())
-                .ExpandNested("custom_fields", "categories", "pricing", "pictures");
+                .Compare_GreaterThan());
+                //.Compare_GreaterThanOrEqual());
+                //.ExpandNested("custom_fields", "categories", "pricing", "pictures");
 
             return base.RecordPaging(filter);
         }
