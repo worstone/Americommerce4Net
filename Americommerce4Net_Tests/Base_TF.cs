@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 //   Copyright 2014 Ken Worst - R.C. Worst & Company Inc.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,17 +14,16 @@
 //   limitations under the License. 
 #endregion
 
-namespace Americommerce4Net
+using System;
+using System.Configuration;
+
+namespace Americommerce4Net_Tests
 {
-    public interface IRestEngine
+    public class Base_TF
     {
-        IClientResponse<bool> DeleteData(string resourceEndpoint);
-        IClientResponse<T> GetData<T>(string resourceEndpoint) where T : new();
-        IClientResponse<T> GetData<T>(string resourceEndpoint, IFilter filter) where T : new();
-        IClientResponse<T> PostData<T>(string resourceEndpoint, string json) where T : new();
-        IClientResponse<T> PutData<T>(string resourceEndpoint, string json) where T : new();
-        CacheControl CacheControl { get; set; }
+        protected int PRODUCTS_ID = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_Tests_PRODUCTS_ID"]);
+        protected string PRODUCTS_ITEM_NUMBER = ConfigurationManager.AppSettings["Americommerce4Net_Tests_PRODUCTS_ITEM_NUMBER"];
+        protected int CUSTOMERS_ID = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_Tests_CUSTOMERS_ID"]);
+        protected int ORDERS_ID = int.Parse(ConfigurationManager.AppSettings["Americommerce4Net_Tests_ORDERS_ID"]);
     }
-
-
 }

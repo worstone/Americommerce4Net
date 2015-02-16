@@ -40,6 +40,7 @@
       <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base_TF.cs" />
     <Compile Include="ClientOrderProc_TF.cs" />
     <Compile Include="ClientPeople_TF.cs" />
     <Compile Include="ClientProducts_TF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestEngine_Cache_Control_TF.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

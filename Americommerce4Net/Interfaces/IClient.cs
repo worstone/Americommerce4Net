@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 //   Copyright 2014 Ken Worst - R.C. Worst & Company Inc.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,17 +14,12 @@
 //   limitations under the License. 
 #endregion
 
+using System;
+
 namespace Americommerce4Net
 {
-    public interface IRestEngine
+    public interface IClient
     {
-        IClientResponse<bool> DeleteData(string resourceEndpoint);
-        IClientResponse<T> GetData<T>(string resourceEndpoint) where T : new();
-        IClientResponse<T> GetData<T>(string resourceEndpoint, IFilter filter) where T : new();
-        IClientResponse<T> PostData<T>(string resourceEndpoint, string json) where T : new();
-        IClientResponse<T> PutData<T>(string resourceEndpoint, string json) where T : new();
         CacheControl CacheControl { get; set; }
     }
-
-
 }
