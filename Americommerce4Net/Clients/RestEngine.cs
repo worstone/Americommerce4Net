@@ -27,11 +27,11 @@ namespace Americommerce4Net.Clients
         private readonly Configuration _Configuration;
         int _ErrorDeserializeRetryCount = 0;
 
-        public bool CachingOn { get; set; }
+        public CacheControl CacheControl { get; set; }
 
         internal RestEngine(Configuration _configuration) {
             _Configuration = _configuration;
-            CachingOn = true;
+            CacheControl = Americommerce4Net.CacheControl.Cache;
         }
 
         public IClientResponse<T> GetData<T>(string resourceEndpoint) where T : new() {
@@ -137,7 +137,7 @@ namespace Americommerce4Net.Clients
 
             request.RequestFormat = DataFormat.Json;
             request.AddHeader("X-AC-Auth-Token", _Configuration.ApiAccessToken);
-            if (CachingOn) {
+            if (CacheControl == Americommerce4Net.CacheControl.NoCache) {
                 request.AddHeader("Cache-Control", "no-cache");
             }
             request.AddParameter("Accept", "application/json", ParameterType.HttpHeader);

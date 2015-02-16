@@ -16,15 +16,9 @@
 
 namespace Americommerce4Net
 {
-    public interface IRestEngine
+    public enum CacheControl
     {
-        IClientResponse<bool> DeleteData(string resourceEndpoint);
-        IClientResponse<T> GetData<T>(string resourceEndpoint) where T : new();
-        IClientResponse<T> GetData<T>(string resourceEndpoint, IFilter filter) where T : new();
-        IClientResponse<T> PostData<T>(string resourceEndpoint, string json) where T : new();
-        IClientResponse<T> PutData<T>(string resourceEndpoint, string json) where T : new();
-        CacheControl CacheControl { get; set; }
+        Cache = 0,
+        NoCache = 1
     }
-
-
 }

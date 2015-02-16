@@ -17,45 +17,40 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Americommerce4Net;
+using System.Linq;
+using RestSharp;
 
 namespace Americommerce4Net_Tests
 {
     [TestFixture]
-    public class ClientProducts_TF : Base_TF
+    public class RestEngine_Cache_Control_TF : Base_TF
     {
         [Test]
-        public void ClientProducts_Get_Product_By_Id_Test() {
+        public void Test_For_No_Cache() {
+            var client = new ClientCatalog();
+            client.Products.CacheControl = CacheControl.NoCache;
+            var response = client.Products.Get(PRODUCTS_ID);
+            Assert.AreEqual(System.Net.HttpStatusCode.OK, response.RestResponse.StatusCode);
+            Assert.NotNull(response.Data);
+            Americommerce4Net.Models.Product product = response.Data.ToObject<Americommerce4Net.Models.Product>();
+            Assert.AreEqual(PRODUCTS_ID, product.id);
+            var request_head_cache_control = response.RestResponse.Request.Parameters.Where(x => x.Name == "Cache-Control").FirstOrDefault();
+            Assert.NotNull(request_head_cache_control);
+            Assert.AreEqual(ParameterType.HttpHeader, request_head_cache_control.Type);
+            Assert.AreEqual("Cache-Control", request_head_cache_control.Name);
+            Assert.AreEqual("no-cache", request_head_cache_control.Value.ToString());
+        }
+
+        [Test]
+        public void Test_For_Has_Caching_On() {
             var client = new ClientCatalog();
             var response = client.Products.Get(PRODUCTS_ID);
             Assert.AreEqual(System.Net.HttpStatusCode.OK, response.RestResponse.StatusCode);
             Assert.NotNull(response.Data);
             Americommerce4Net.Models.Product product = response.Data.ToObject<Americommerce4Net.Models.Product>();
             Assert.AreEqual(PRODUCTS_ID, product.id);
-        }
-
-        [Test]
-        public void ClientProducts_Get_First_100_Products_Test() {
-
-            var items = new List<Americommerce4Net.Models.Product>();
-
-            var client = new ClientCatalog();
-            var filter = new FilterList()
-                .Query(new FilterQuery()
-                .FieldName("id")
-                .FieldValue("0")
-                .Compare_GreaterThan())
-                .Page(1)
-                .Count(100);
-
-            var response = client.Products.Get(filter);
-            Assert.AreEqual(System.Net.HttpStatusCode.OK, response.RestResponse.StatusCode);
-            Assert.NotNull(response.Data);
-            foreach (var item in response.Data[client.Products.ResourceName]) {
-                items.Add(item.ToObject<Americommerce4Net.Models.Product>());
-            }
-            Assert.Greater(items.Count, 0);
-            int total_count = (int)response.Data["total_count"].Value;
-            Assert.Greater(total_count, 0);
+            var request_head_cache_control = response.RestResponse.Request.Parameters.Where(x => x.Name == "Cache-Control").FirstOrDefault();
+            Assert.IsNull(request_head_cache_control);
         }
     }
 }

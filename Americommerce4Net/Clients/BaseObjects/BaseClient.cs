@@ -22,15 +22,15 @@ namespace Americommerce4Net.Clients
     {
         public string ResourceName { get; protected set; }
 
-        public bool CachingOn {
+        public CacheControl CacheControl {
             get {
-                return _RestEngine.CachingOn;
+                return _RestEngine.CacheControl;
             }
             set {
-                _RestEngine.CachingOn = value;
+                _RestEngine.CacheControl = value;
             }
         }
-        
+
         protected internal IRestEngine _RestEngine;
 
         protected internal BaseClient(IRestEngine restEngine) {
@@ -102,5 +102,8 @@ namespace Americommerce4Net.Clients
             string endpoint = string.Format("/{0}/{1}", resource, recordId);
             return _RestEngine.DeleteData(endpoint);
         }
+
+
+        
     }
 }

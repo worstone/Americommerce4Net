@@ -59,6 +59,8 @@
     <Compile Include="Clients\BaseObjects\BaseNonNestedClient.cs" />
     <Compile Include="Clients\BaseObjects\BaseCRUDClient.cs" />
     <Compile Include="Clients\BaseObjects\BaseNestedClient.cs" />
+    <Compile Include="Enumerations\CacheControl.cs" />
+    <Compile Include="Interfaces\IClient.cs" />
     <Compile Include="Interfaces\IRepoResponse.cs" />
     <Compile Include="Interfaces\IResource.cs" />
     <Compile Include="Interfaces\IClientNestedRead.cs" />
