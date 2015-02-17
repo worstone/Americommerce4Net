@@ -26,25 +26,26 @@ namespace Americommerce4Net.Repositories
         public RepoCustomer()
             : base(_Client, "customers") {
         }
-        
-        public override IRepoResponse<List<Customer>> GetAll() {
-            var filter = new FilterList()
-                .Query(new FilterQuery()
-                .FieldName("id")
-                .FieldValue("0")
-                .Compare_GreaterThan())
-                .ExpandNested("custom_fields", "addresses");
-            return base.GetAll(filter);
-        }
 
-
-        public IRepoResponse<List<Customer>> GetCustomerNumber(string customer_number) {
+        public IRepoResponse<List<Customer>> GetByCustomerNumber(string customer_number) {
 
             var filter = new FilterList()
                 .Query(new FilterQuery()
                 .FieldName("customer_number")
                 .FieldValue(customer_number)
                 .Compare_EqualTo());
+
+            return base.RecordPaging(filter);
+        }
+
+        public IRepoResponse<List<Customer>> GetByCustomerNumber(string customer_number, params string[] expandNested) {
+
+            var filter = new FilterList()
+                .Query(new FilterQuery()
+                .FieldName("customer_number")
+                .FieldValue(customer_number)
+                .Compare_EqualTo())
+                .ExpandNested(expandNested);
 
             return base.RecordPaging(filter);
         }

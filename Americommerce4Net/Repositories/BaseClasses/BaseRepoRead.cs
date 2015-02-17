@@ -84,6 +84,17 @@ namespace Americommerce4Net.Repositories
             return RecordPaging(filter);
         }
 
+        public virtual IRepoResponse<List<T>> GetAll(params string[] expandNested) {
+            var filter = new FilterList()
+                .Query(new FilterQuery()
+                .FieldName("id")
+                .FieldValue("0")
+                .Compare_GreaterThan())
+                .ExpandNested(expandNested);
+            return RecordPaging(filter);;
+        }
+
+
         public virtual IRepoResponse<List<T>> GetAll(FilterList filter) {
             return RecordPaging(filter);
         }
@@ -94,6 +105,17 @@ namespace Americommerce4Net.Repositories
                 .FieldName("updated_at")
                 .FieldValue(dateTime.To_ISO_8601_DateTime_Format())
                 .Compare_GreaterThanOrEqual());
+
+            return RecordPaging(filter);
+        }
+
+        public virtual IRepoResponse<List<T>> Get_GreaterThanOrEqualTo_ModifiedDate(DateTime dateTime, params string[] expandNested) {
+            var filter = new FilterList()
+                .Query(new FilterQuery()
+                .FieldName("updated_at")
+                .FieldValue(dateTime.To_ISO_8601_DateTime_Format())
+                .Compare_GreaterThanOrEqual())
+                .ExpandNested(expandNested); 
 
             return RecordPaging(filter);
         }
