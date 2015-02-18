@@ -54,6 +54,21 @@ namespace Americommerce4Net.Repositories
             
             return repo_response;
         }
+        public virtual IRepoResponse<T> Get(int id, params string[] expandNested) {
+            var filter = new FilterSingle().ExpandNested(expandNested);
+            var response = ReadClient.Get(id, filter);
+
+            var repo_response = new RepoResponse<T>();
+            try {
+                repo_response.Data = response.Data.ToObject<T>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
+
+            return repo_response;
+        }
+
 
         public virtual IRepoResponse<T> Get(int id, FilterSingle filter) {
             var response = ReadClient.Get(id, filter);
