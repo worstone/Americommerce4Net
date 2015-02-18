@@ -43,10 +43,14 @@ namespace Americommerce4Net.Repositories
 
         public virtual IRepoResponse<T> Get(int id) {
             var response = ReadClient.Get(id);
-            
+
             var repo_response = new RepoResponse<T>();
-            repo_response.Data = response.Data.ToObject<T>();
-            repo_response.ErrorException = response.RestResponse.ErrorException;
+            try {
+                repo_response.Data = response.Data.ToObject<T>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
             
             return repo_response;
         }
@@ -55,8 +59,12 @@ namespace Americommerce4Net.Repositories
             var response = ReadClient.Get(id, filter);
 
             var repo_response = new RepoResponse<T>();
-            repo_response.Data = response.Data.ToObject<T>();
-            repo_response.ErrorException = response.RestResponse.ErrorException;
+            try {
+                repo_response.Data = response.Data.ToObject<T>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
             
             return repo_response;
         }
@@ -66,11 +74,15 @@ namespace Americommerce4Net.Repositories
 
             var repo_response = new RepoResponse<List<T>>();
             repo_response.Data = new List<T>();
-            repo_response.ErrorException = response.RestResponse.ErrorException;
-
-            foreach (var item in response.Data[ResourceName]) {
-                repo_response.Data.Add(item.ToObject<T>());
+            try {
+                foreach (var item in response.Data[ResourceName]) {
+                    repo_response.Data.Add(item.ToObject<T>());
+                }
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
             }
+
             return repo_response;
         }
 
@@ -152,8 +164,13 @@ namespace Americommerce4Net.Repositories
                                 page_count = pageCount;
                             }
                         }
-                        foreach (var item in response.Data[ResourceName]) {
-                            repo_response.Data.Add(item.ToObject<T>());
+                        try {
+                            foreach (var item in response.Data[ResourceName]) {
+                                repo_response.Data.Add(item.ToObject<T>());
+                            }
+                        } catch (Exception ex) {
+                            repo_response.ErrorException = ex;
+                            return repo_response;
                         }
                         page_current++;
                     } else {

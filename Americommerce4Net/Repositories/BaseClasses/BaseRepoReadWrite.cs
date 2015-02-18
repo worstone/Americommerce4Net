@@ -36,18 +36,26 @@ namespace Americommerce4Net.Repositories
         public virtual IRepoResponse<T> Create(object obj) {
             var response = ReadWriteClient.Create(obj);
             var repo_response = new RepoResponse<T>();
-            repo_response.Data = response.Data.ToObject<T>();
-            repo_response.ErrorException = response.RestResponse.ErrorException;
+            try {
+                repo_response.Data = response.Data.ToObject<T>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
             return repo_response;
         }
 
         public virtual IRepoResponse<T> Update(int id, object obj) {
             var response = ReadWriteClient.Update(id, obj);
             var repo_response = new RepoResponse<T>();
-            repo_response.Data = response.Data.ToObject<T>();
-            repo_response.ErrorException = response.RestResponse.ErrorException;
+            try {
+                repo_response.Data = response.Data.ToObject<T>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
             return repo_response;
-            
+
         }
 
         public virtual IRepoResponse<bool> Delete(int id) {
