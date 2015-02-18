@@ -19,7 +19,7 @@ using Americommerce4Net.Models;
 
 namespace Americommerce4Net.Repositories
 {
-    public class RepoCustomer : BaseRepoReadWrite<Customer>
+    public class RepoCustomer : BaseRepoReadWriteNested<Customer>
     {
         readonly static IClientReadWrite _Client = new ClientPeople().Customers;
 

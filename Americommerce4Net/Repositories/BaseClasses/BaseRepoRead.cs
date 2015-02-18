@@ -20,7 +20,7 @@ using System;
 
 namespace Americommerce4Net.Repositories
 {
-    public class BaseRepoRead<T> : Americommerce4Net.IRepoRead<T>
+    public abstract class BaseRepoRead<T> : Americommerce4Net.IRepoRead<T>, Americommerce4Net.IRepo
     {
         private string _ResourceName;
         protected string ResourceName {
@@ -36,11 +36,17 @@ namespace Americommerce4Net.Repositories
             }
         }
 
+        public CacheControl CacheControl {
+            get { return _ReadClient.CacheControl; }
+            set { _ReadClient.CacheControl = value; }
+        }
+
         protected BaseRepoRead(IClientRead client, string resourceName) {
             _ReadClient = client;
             _ResourceName = resourceName;
         }
 
+        //Get's
         public virtual IRepoResponse<T> Get(int id) {
             var response = ReadClient.Get(id);
 
@@ -54,21 +60,6 @@ namespace Americommerce4Net.Repositories
             
             return repo_response;
         }
-        public virtual IRepoResponse<T> Get(int id, params string[] expandNested) {
-            var filter = new FilterSingle().ExpandNested(expandNested);
-            var response = ReadClient.Get(id, filter);
-
-            var repo_response = new RepoResponse<T>();
-            try {
-                repo_response.Data = response.Data.ToObject<T>();
-                repo_response.ErrorException = response.RestResponse.ErrorException;
-            } catch (Exception ex) {
-                repo_response.ErrorException = ex;
-            }
-
-            return repo_response;
-        }
-
 
         public virtual IRepoResponse<T> Get(int id, FilterSingle filter) {
             var response = ReadClient.Get(id, filter);
@@ -101,6 +92,7 @@ namespace Americommerce4Net.Repositories
             return repo_response;
         }
 
+        //GetAll's
         public virtual IRepoResponse<List<T>> GetAll() {
             var filter = new FilterList()
                 .Query(new FilterQuery()
@@ -110,22 +102,13 @@ namespace Americommerce4Net.Repositories
 
             return RecordPaging(filter);
         }
-
-        public virtual IRepoResponse<List<T>> GetAll(params string[] expandNested) {
-            var filter = new FilterList()
-                .Query(new FilterQuery()
-                .FieldName("id")
-                .FieldValue("0")
-                .Compare_GreaterThan())
-                .ExpandNested(expandNested);
-            return RecordPaging(filter);;
-        }
-
+        
 
         public virtual IRepoResponse<List<T>> GetAll(FilterList filter) {
             return RecordPaging(filter);
         }
 
+        //Get_GreaterThanOrEqualTo_ModifiedDate
         public virtual IRepoResponse<List<T>> Get_GreaterThanOrEqualTo_ModifiedDate(DateTime dateTime) {
             var filter = new FilterList()
                 .Query(new FilterQuery()
@@ -136,16 +119,7 @@ namespace Americommerce4Net.Repositories
             return RecordPaging(filter);
         }
 
-        public virtual IRepoResponse<List<T>> Get_GreaterThanOrEqualTo_ModifiedDate(DateTime dateTime, params string[] expandNested) {
-            var filter = new FilterList()
-                .Query(new FilterQuery()
-                .FieldName("updated_at")
-                .FieldValue(dateTime.To_ISO_8601_DateTime_Format())
-                .Compare_GreaterThanOrEqual())
-                .ExpandNested(expandNested); 
-
-            return RecordPaging(filter);
-        }
+        
 
         protected IRepoResponse<List<T>> RecordPaging(FilterList filterList) {
 
@@ -199,5 +173,7 @@ namespace Americommerce4Net.Repositories
             return repo_response;
         }
 
+
+        
     }
 }

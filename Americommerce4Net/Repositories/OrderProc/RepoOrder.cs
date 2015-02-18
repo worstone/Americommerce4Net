@@ -20,7 +20,7 @@ using Americommerce4Net.Models;
 
 namespace Americommerce4Net.Repositories
 {
-    public class RepoOrder : BaseRepoReadWrite<Order>
+    public class RepoOrder : BaseRepoReadWriteNested<Order>
     {
 
         readonly static IClientReadWrite _Client = new ClientOrderProc().Orders;

@@ -18,7 +18,7 @@ using Americommerce4Net.Models;
 
 namespace Americommerce4Net.Repositories
 {
-    public class RepoCustomerPaymentMethod : BaseRepoReadWrite<CustomerPaymentMethod>
+    public class RepoCustomerPaymentMethod : BaseRepoReadWriteNested<CustomerPaymentMethod>
     {
         readonly static IClientReadWrite _Client = new ClientPeople().CustomerPaymentMethods;
 

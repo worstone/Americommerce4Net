@@ -24,9 +24,7 @@ namespace Americommerce4Net
         global::Americommerce4Net.IRepoResponse<T> Get(int id);
         global::Americommerce4Net.IRepoResponse<T> Get(int id, global::Americommerce4Net.FilterSingle filter);
         global::Americommerce4Net.IRepoResponse<global::System.Collections.Generic.List<T>> Get_GreaterThanOrEqualTo_ModifiedDate(DateTime dateTime);
-        global::Americommerce4Net.IRepoResponse<global::System.Collections.Generic.List<T>> Get_GreaterThanOrEqualTo_ModifiedDate(DateTime dateTime, params string[] expandNested);
         global::Americommerce4Net.IRepoResponse<global::System.Collections.Generic.List<T>> GetAll();
-        global::Americommerce4Net.IRepoResponse<global::System.Collections.Generic.List<T>> GetAll(params string[] expandNested);
         global::Americommerce4Net.IRepoResponse<global::System.Collections.Generic.List<T>> GetAll(global::Americommerce4Net.FilterList filter);
     }
 }

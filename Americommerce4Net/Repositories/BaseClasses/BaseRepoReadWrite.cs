@@ -19,7 +19,7 @@ using System;
 
 namespace Americommerce4Net.Repositories
 {
-    public class BaseRepoReadWrite<T> : BaseRepoRead<T>, Americommerce4Net.IRepoReadWrite<T>
+    public abstract class BaseRepoReadWrite<T> : BaseRepoRead<T>, Americommerce4Net.IRepoReadWrite<T>
     {
         public BaseRepoReadWrite(IClientReadWrite readWriteClient, string resourceName)
             : base((IClientRead)readWriteClient, resourceName) {
@@ -27,6 +27,7 @@ namespace Americommerce4Net.Repositories
         }
 
         private IClientReadWrite _ReadWriteClient;
+        
         protected IClientReadWrite ReadWriteClient {
             get {
                 return _ReadWriteClient;
