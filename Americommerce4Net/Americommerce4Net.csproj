@@ -235,6 +235,7 @@
     <Compile Include="Repositories\Catalog\RepoAttribute.cs" />
     <Compile Include="Repositories\Catalog\RepoAttributeGroup.cs" />
     <Compile Include="Repositories\Catalog\RepoCategory.cs" />
+    <Compile Include="Repositories\People\RepoCustomerAddresses.cs" />
     <Compile Include="Repositories\Settings\RepoPaymentMethod.cs" />
     <Compile Include="Repositories\Settings\RepoRegion.cs" />
     <Compile Include="Repositories\Settings\RepoTaxRate.cs" />
