@@ -20,6 +20,7 @@ namespace Americommerce4Net
 {
     public class ClientTools
     {
+        Configuration _Configuration;
 
         IRestEngine _RestEngine;
 
@@ -32,7 +33,8 @@ namespace Americommerce4Net
         }
 
         public ClientTools(Configuration configuration) {
-            _RestEngine = new RestEngine(configuration);
+            _Configuration = configuration;
+            _RestEngine = new RestEngine(_Configuration);
         }
 
         private ClientCustomFields _CustomFields;
@@ -42,6 +44,20 @@ namespace Americommerce4Net
                     _CustomFields = new ClientCustomFields(_RestEngine);
                 }
                 return _CustomFields;
+            }
+        }
+
+        private ClientServerTools _ServerTools;
+        public ClientServerTools ServerTools {
+            get {
+                if (_ServerTools == null) {
+                    if (_Configuration != null) {
+                        _ServerTools = new ClientServerTools(_Configuration);
+                    } else {
+                        _ServerTools = new ClientServerTools();
+                    }
+                }
+                return _ServerTools;
             }
         }
     }
