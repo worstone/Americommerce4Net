@@ -114,7 +114,7 @@ namespace Americommerce4Net.Clients
 
                 clientResponse = new ClientResponse<bool>() {
                     RestResponse = response,
-                    Data = response.StatusCode == System.Net.HttpStatusCode.OK ? true : false,
+                    Data = response.StatusCode == System.Net.HttpStatusCode.NoContent ? true : false,
                     HttpResponse = response.StatusCode
                 };
 
