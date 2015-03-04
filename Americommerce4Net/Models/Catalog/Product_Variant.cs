@@ -19,13 +19,14 @@ namespace Americommerce4Net.Models
     public class Product_Variant : BaseAudit, IResource
     {
         public int id { get; set; }
-        public int variant_group_id { get; set; }
+        public int? product_id { get; set; }
+        public int? variant_group_id { get; set; }
         public string description { get; set; }
-        public int price_adjustment { get; set; }
+        public decimal? price_adjustment { get; set; }
         public string price_adjustment_type { get; set; }
-        public int sort_order { get; set; }
+        public int? sort_order { get; set; }
         public string item_number_extension { get; set; }
-        public bool is_hidden { get; set; }
-        public bool is_default_selection { get; set; }
+        public bool? is_hidden { get; set; }
+        public bool? is_default_selection { get; set; }
     }
 }

@@ -240,6 +240,8 @@
     <Compile Include="Repositories\Catalog\RepoAttribute.cs" />
     <Compile Include="Repositories\Catalog\RepoAttributeGroup.cs" />
     <Compile Include="Repositories\Catalog\RepoCategory.cs" />
+    <Compile Include="Repositories\Catalog\RepoProductPicture.cs" />
+    <Compile Include="Repositories\Catalog\RepoProductVariant.cs" />
     <Compile Include="Repositories\OrderProc\RepoOrderItem.cs" />
     <Compile Include="Repositories\OrderProc\RepoOrderPayment.cs" />
     <Compile Include="Repositories\OrderProc\RepoOrderShipment.cs" />
