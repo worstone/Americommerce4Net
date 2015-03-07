@@ -44,8 +44,8 @@ namespace Americommerce4Net.Models
         public string selected_shipping_method { get; set; }
         public string ip_address { get; set; }
         public string referrer { get; set; }
-        public int order_shipping_address_id { get; set; }
-        public int order_billing_address_id { get; set; }
+        public int? order_shipping_address_id { get; set; }
+        public int? order_billing_address_id { get; set; }
         public string admin_comments { get; set; }
         public string source { get; set; }
         public string search_phrase { get; set; }
