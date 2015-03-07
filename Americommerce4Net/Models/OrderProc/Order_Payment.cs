@@ -23,7 +23,7 @@ namespace Americommerce4Net.Models
         public int id { get; set; }
         public int customer_id { get; set; }
         public int order_id { get; set; }
-        public int customer_payment_method_id { get; set; }
+        public int? customer_payment_method_id { get; set; }
         public int payment_method_id { get; set; }
         public string payment_type { get; set; }
         public bool is_approved { get; set; }
