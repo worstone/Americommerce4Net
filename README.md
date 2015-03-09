@@ -69,13 +69,69 @@ Main Client includes all clients grouped by functionality
 Each of the functionality grouped clients can be used independently, depending on your needs
 
 * ClientCatalog
+	* Products
+	* ProductVariants
+	* ProductPictures
+	* Categories
+	* Manufacturers
+	* Attributes
+	* AttributeGroups
+	* ProductLists
+	* ProductStatuses
+	* ShippingRateAdjustments
+	* VariantGroups
+	* VariantInventory 
 * ClientContent
+	* Pages
+	* Blogs
+	* BlogCategories
+	* BlogPosts
+	* Links
 * ClientMarketing
+	* Adcodes
+	* Affiliates
+	* Drips 
+	* DiscountMethods 
+	* DiscountRules 
+	* CouponCodes
+	* GiftCertificates 
+	* GiftCertificateTransactions 
+	* MailingLists 
+	* EmailTemplates 
 * ClientOrderProc
+	* Carts
+	* CartItems 
+	* Orders 
+	* OrderItems 
+	* OrderPayments 
+	* OrderShipments
+	* OrderAddresses 
+	* Quotes
+	* Subscriptions 
+	* CreditCards 
+	* OrderStatuses 
 * ClientPeople
+	* Customers 
+	* Addresses 
+	* CustomerPaymentMethods 
+	* CustomerTypes 
+	* Profiles 
+	* Users 
 * ClientSettings
+	* UrlRedirects 
+	* TaxRates 
+	* PaymentMethods 
+	* Regions
+	* ShippingProviders
+	* CustomShippingMethods
+	* Warehouses 
 * ClientSystem
+	* Sessions 
+	* Stores 
 * ClientTools
+	* CustomFields 
+	* ServerTools 
+	
 
 All clients respond with IClientResponse interface
 
