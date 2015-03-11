@@ -26,7 +26,7 @@ namespace Americommerce4Net.Models
         public string tracking_numbers { get; set; }
         public string tracking_url { get; set; }
         public string shipping_method { get; set; }
-        public int shipping_method_id { get; set; }
+        public int? shipping_method_id { get; set; }
         public int? number_of_packages { get; set; }
         public decimal? total_weight { get; set; }
         public string provider_base_shipping_cost { get; set; }
