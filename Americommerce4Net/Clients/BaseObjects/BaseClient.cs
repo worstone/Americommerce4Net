@@ -102,8 +102,5 @@ namespace Americommerce4Net.Clients
             string endpoint = string.Format("/{0}/{1}", resource, recordId);
             return _RestEngine.DeleteData(endpoint);
         }
-
-
-        
     }
 }

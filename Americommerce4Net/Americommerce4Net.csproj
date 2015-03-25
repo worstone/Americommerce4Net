@@ -59,6 +59,9 @@
     <Compile Include="Clients\BaseObjects\BaseNonNestedClient.cs" />
     <Compile Include="Clients\BaseObjects\BaseCRUDClient.cs" />
     <Compile Include="Clients\BaseObjects\BaseNestedClient.cs" />
+    <Compile Include="Clients\BaseObjects\BaseSpecializedClient.cs" />
+    <Compile Include="Clients\Catalog\ClientInventory.cs" />
+    <Compile Include="Clients\Catalog\ClientInventorySettings.cs" />
     <Compile Include="Clients\Tools\ClientServerTools.cs" />
     <Compile Include="Enumerations\CacheControl.cs" />
     <Compile Include="Interfaces\IClient.cs" />
@@ -152,6 +155,8 @@
     <Compile Include="Models\Catalog\Attribute.cs" />
     <Compile Include="Models\Catalog\AttributeGroup.cs" />
     <Compile Include="Models\Catalog\Category.cs" />
+    <Compile Include="Models\Catalog\Inventory.cs" />
+    <Compile Include="Models\Catalog\InventorySettings.cs" />
     <Compile Include="Models\Catalog\Manufacturer.cs" />
     <Compile Include="Models\Marketing\AdCode.cs" />
     <Compile Include="Models\Content\Blog.cs" />
