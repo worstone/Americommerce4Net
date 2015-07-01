@@ -15,9 +15,9 @@ Americommerce4Net_Tests Dependencies
 - Above Dependencies 
 - NUnit - http://nunit.org/
 
-AmeriCommerce v1 API Documentation
+AmeriCommerce/SparkPay v1 API Documentation
 ------------
-- https://github.com/americommerce/ac-rest-api
+- https://github.com/SparkPay/rest-api
 
 
 Namespace
