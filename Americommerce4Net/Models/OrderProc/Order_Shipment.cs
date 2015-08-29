@@ -15,11 +15,16 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 
 namespace Americommerce4Net.Models
 {
     public class Order_Shipment : BaseAudit, IResource
     {
+        public Order_Shipment() {
+            items = new List<Order_Shipment_Item>();
+        }
+
         public int id { get; set; }
         public int order_id { get; set; }
         public DateTime? shipped_at { get; set; }
@@ -38,6 +43,8 @@ namespace Americommerce4Net.Models
         public string shipping_comment { get; set; }
         public string shipping_method_type { get; set; }
         public string shipment_name { get; set; }
+
+        public List<Order_Shipment_Item> items { get; set; }
     }
 
 }
