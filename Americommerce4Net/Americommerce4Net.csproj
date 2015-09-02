@@ -180,6 +180,7 @@
     <Compile Include="Models\BaseClasses\BaseAudit.cs" />
     <Compile Include="Models\OrderProc\Order_Address.cs" />
     <Compile Include="Models\OrderProc\Order_Item_Personalization.cs" />
+    <Compile Include="Models\OrderProc\Order_Payment_Fields.cs" />
     <Compile Include="Models\OrderProc\Order_Shipment_Item.cs" />
     <Compile Include="Models\OrderProc\Order_Status.cs" />
     <Compile Include="Models\People\Customer_Address.cs" />

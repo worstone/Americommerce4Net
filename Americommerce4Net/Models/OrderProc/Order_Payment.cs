@@ -15,6 +15,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 
 namespace Americommerce4Net.Models
 {
@@ -47,5 +48,7 @@ namespace Americommerce4Net.Models
         public bool is_void { get; set; }
         public string gateway_response_code { get; set; }
         public string cvv_response_code { get; set; }
+
+        public List<Order_Payment_Fields> fields { get; set; }
     }
 }

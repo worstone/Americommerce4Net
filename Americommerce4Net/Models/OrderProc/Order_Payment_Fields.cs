@@ -18,12 +18,14 @@ using System;
 
 namespace Americommerce4Net.Models
 {
-    public class Order_Shipment_Item : BaseAudit, IResource
+    public class Order_Payment_Fields : BaseAudit, IResource
     {
         public int id { get; set; }
-        public int quantity_shipped { get; set; }
-        public int product_id { get; set; }
-        public string item_name { get; set; }
-
+        public int order_payment_id { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
+        public string value { get; set; }
+        public bool is_encrypted { get; set; }
+        public bool is_masked { get; set; }
     }
 }
