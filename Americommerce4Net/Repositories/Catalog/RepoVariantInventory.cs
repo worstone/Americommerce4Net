@@ -14,18 +14,16 @@
 //   limitations under the License. 
 #endregion
 
-namespace Americommerce4Net.Models
+using Americommerce4Net.Models;
+
+namespace Americommerce4Net.Repositories
 {
-    public class Product_Variant_Inventory : BaseAudit, IResource
+    public class RepoVariantInventory : BaseRepoReadWriteNested<VariantInventory>
     {
-        public int id { get; set; }
-        public int? inventory { get; set; }
-        public string item_number { get; set; }
-        public string manufacturer_item_number { get; set; }
-        public int? weight { get; set; }
-        public int? product_status_id { get; set; }
-        public int? low_stock_warning_at { get; set; }
-        public bool low_stock_warning_enabled { get; set; }
-        public string gtin { get; set; }
+        readonly static IClientReadWrite _Client = new ClientCatalog().VariantInventory;
+
+        public RepoVariantInventory()
+            : base(_Client, "variant_inventory") {
+        }
     }
 }

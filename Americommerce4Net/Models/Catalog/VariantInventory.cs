@@ -20,12 +20,12 @@ namespace Americommerce4Net.Models
     {
         public int id { get; set; }
         public int product_id { get; set; }
-        public int inventory { get; set; }
+        public int? inventory { get; set; }
         public string item_number { get; set; }
         public string manufacturer_item_number { get; set; }
-        public int weight { get; set; }
-        public int product_status_id { get; set; }
-        public object low_stock_warning_at { get; set; }
+        public int? weight { get; set; }
+        public int? product_status_id { get; set; }
+        public int? low_stock_warning_at { get; set; }
         public bool low_stock_warning_enabled { get; set; }
         public string gtin { get; set; }
     }
