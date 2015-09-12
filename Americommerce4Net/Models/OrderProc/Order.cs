@@ -54,7 +54,7 @@ namespace Americommerce4Net.Models
         public int? affiliate_id { get; set; }
         public int store_id { get; set; }
         public int session_id { get; set; }
-        public int handling_total { get; set; }
+        public decimal handling_total { get; set; }
         public bool is_payment_order_only { get; set; }
         public string selected_shipping_provider_service { get; set; }
         public decimal additional_fees { get; set; }
