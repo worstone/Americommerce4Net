@@ -205,7 +205,7 @@ namespace Americommerce4Net.Clients
                     if (currentlimit_wasParsed && maxlimit_wasParsed) {
                         if (currentlimit >= maxlimit) {
 
-                            LoggingService.Log(this).WarnFormat("Throttling Enabled Until Call Limit Gets Above {0} - {1}", maxlimit, head);
+                            LoggingService.Log(this).WarnFormat("Throttling Enabled Until Call Limit Gets Below {0} - {1}", maxlimit, head);
                             System.Threading.Thread.Sleep(_Configuration.ThrottlingDelay);
                         }
                     }
