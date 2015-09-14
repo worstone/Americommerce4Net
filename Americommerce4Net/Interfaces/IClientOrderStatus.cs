@@ -1,5 +1,5 @@
-#region License
-//   Copyright 2014 Ken Worst - R.C. Worst & Company Inc.
+﻿#region License
+//   Copyright 2015 Ken Worst - R.C. Worst & Company Inc.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
 //   limitations under the License. 
 #endregion
 
-using System.Collections.Generic;
+using System;
 
-namespace Americommerce4Net.Clients
+namespace Americommerce4Net
 {
-    public class BaseNonNestedClient : BaseCRUDClient
+    public interface IClientOrderStatus
     {
-        protected internal BaseNonNestedClient(IRestEngine restEngine)
-            : base(restEngine) { }
+        global::Americommerce4Net.IClientResponse<dynamic> UpdateStatus(int recordId, object obj);
+        global::Americommerce4Net.IClientResponse<dynamic> UpdateStatus(int recordId, string json);
     }
 }

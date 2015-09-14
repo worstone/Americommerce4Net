@@ -62,6 +62,7 @@
     <Compile Include="Clients\BaseObjects\BaseSpecializedClient.cs" />
     <Compile Include="Clients\Catalog\ClientInventory.cs" />
     <Compile Include="Clients\Catalog\ClientInventorySettings.cs" />
+    <Compile Include="Interfaces\IClientOrderStatus.cs" />
     <Compile Include="Clients\Tools\ClientServerTools.cs" />
     <Compile Include="Enumerations\CacheControl.cs" />
     <Compile Include="Interfaces\IClient.cs" />

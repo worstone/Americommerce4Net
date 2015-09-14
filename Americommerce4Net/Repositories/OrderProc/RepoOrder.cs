@@ -27,6 +27,38 @@ namespace Americommerce4Net.Repositories
 
         public RepoOrder()
             : base(_Client, "orders") {
+                _OrderStatusClient = (IClientOrderStatus)_Client;
+        }
+
+        private IClientOrderStatus _OrderStatusClient;
+
+        protected IClientOrderStatus OrderStatusClient {
+            get {
+                return _OrderStatusClient;
+            }
+        }
+        public IRepoResponse<Order> UpdateStatus(int recordId, object obj) {
+            var response = OrderStatusClient.UpdateStatus(recordId, obj);
+            var repo_response = new RepoResponse<Order>();
+            try {
+                repo_response.Data = response.Data.ToObject<Order>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
+            return repo_response;
+        }
+
+        public IRepoResponse<Order> UpdateStatus(int recordId, string json) {
+            var response = OrderStatusClient.UpdateStatus(recordId, json);
+            var repo_response = new RepoResponse<Order>();
+            try {
+                repo_response.Data = response.Data.ToObject<Order>();
+                repo_response.ErrorException = response.RestResponse.ErrorException;
+            } catch (Exception ex) {
+                repo_response.ErrorException = ex;
+            }
+            return repo_response;
         }
 
         public IRepoResponse<List<Order>> GetByOrderNumber(string order_number) {
