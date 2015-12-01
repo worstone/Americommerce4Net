@@ -1,7 +1,7 @@
-Americommerce4Net
+Americommerce4Net / Spark Pay
 =================
 
-.Net REST client for the AmeriCommerce v1 API
+.Net REST client for the AmeriCommerce / Spark Pay v1 API
 
 Americommerce4Net Dependencies
 ------------
@@ -15,7 +15,7 @@ Americommerce4Net_Tests Dependencies
 - Above Dependencies 
 - NUnit - http://nunit.org/
 
-AmeriCommerce/SparkPay v1 API Documentation
+AmeriCommerce / Spark Pay v1 API Documentation
 ------------
 - https://github.com/SparkPay/rest-api
 
