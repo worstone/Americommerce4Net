@@ -67,7 +67,7 @@ namespace Americommerce4Net.Models
         public int? from_subscription_id { get; set; }
         public int previous_order_status_id { get; set; }
         public DateTime? order_status_last_changed_at { get; set; }
-        public decimal discounted_shipping_total { get; set; }
+        public decimal? discounted_shipping_total { get; set; }
         public string order_number { get; set; }
         public string coupon_code { get; set; }
         public string order_type { get; set; }
